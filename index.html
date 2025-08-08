@@ -20,6 +20,7 @@
             --white-soft: #fefefe;
             --black: #000000;
             --accent: #6bbe52;
+            --overlay-bg: rgba(25, 20, 42, 0.75);
             --transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
         }
 
@@ -1123,8 +1124,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background-color: var(--overlay-bg);
+            backdrop-filter: blur(5px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -2034,6 +2035,7 @@
                 document.documentElement.style.setProperty('--primary-black', '#130e25');
                 document.documentElement.style.setProperty('--white', '#ffffff');
                 document.documentElement.style.setProperty('--white-soft', '#fefefe');
+                document.documentElement.style.setProperty('--overlay-bg', 'rgba(25, 20, 42, 0.75)');
 
                 if (themeToggle) {
                     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
@@ -2050,6 +2052,7 @@
                 document.documentElement.style.setProperty('--primary-black', '#ffffff');
                 document.documentElement.style.setProperty('--white', '#212529');
                 document.documentElement.style.setProperty('--white-soft', '#343a40');
+                document.documentElement.style.setProperty('--overlay-bg', 'rgba(248, 249, 250, 0.75)');
 
                 if (themeToggle) {
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
