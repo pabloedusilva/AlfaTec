@@ -954,6 +954,271 @@
             }
         }
 
+        /* Projects Works Section */
+        .projects-works {
+            background: linear-gradient(135deg, var(--primary-medium), var(--primary-dark));
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+        }
+
+        .projects-works::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.04;
+            border-radius: 50%;
+            filter: blur(120px);
+        }
+
+        .projects-works::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            left: -180px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.03;
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .projects-works-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .projects-works-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .projects-works-intro.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projects-works-intro p {
+            font-size: 1.3rem;
+            color: var(--secondary-medium);
+            line-height: 1.8;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .work-item {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 35px 30px;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .work-item.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .work-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--primary-light));
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .work-item:hover::before {
+            opacity: 0.06;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(107, 190, 82, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(107, 190, 82, 0.1);
+        }
+
+        .work-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+
+        .work-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .work-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--primary-light));
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .work-item:hover .work-title::after {
+            width: 70px;
+            box-shadow: 0 0 10px rgba(107, 190, 82, 0.5);
+        }
+
+        .work-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .work-category {
+            background: rgba(107, 190, 82, 0.15);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(107, 190, 82, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .work-category.large-project {
+            background: rgba(107, 190, 82, 0.2);
+            border-color: rgba(107, 190, 82, 0.4);
+        }
+
+        .work-category.medium-project {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .work-category.small-project {
+            background: rgba(33, 150, 243, 0.15);
+            color: #2196f3;
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .work-year {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .work-description {
+            color: var(--secondary-medium);
+            font-size: 1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+
+        .work-location {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Responsive Projects Works Section */
+        @media (max-width: 1024px) {
+            .works-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-works {
+                padding: 80px 0;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .work-item {
+                margin: 0 10px;
+                padding: 25px 20px;
+            }
+
+            .work-title {
+                font-size: 1.2rem;
+            }
+
+            .projects-works-intro p {
+                font-size: 1.1rem;
+            }
+
+            .work-meta {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-works-intro {
+                margin-bottom: 50px;
+            }
+
+            .work-item {
+                padding: 20px 15px;
+            }
+
+            .work-title {
+                font-size: 1.1rem;
+            }
+
+            .projects-works-intro p {
+                font-size: 1rem;
+            }
+
+            .work-category,
+            .work-year {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+        }
+
         /* Clients Section */
         .clients {
             background: linear-gradient(135deg, var(--primary-deeper), var(--primary-dark));
@@ -2125,6 +2390,7 @@
                         <li><a href="#about">Sobre</a></li>
                         <li><a href="#director">Diretor</a></li>
                         <li><a href="#services">Serviços</a></li>
+                        <li><a href="#projects-works">Principais Obras</a></li>
                         <li><a href="#projects">Projetos</a></li>
                         <li><a href="#contact">Contato</a></li>
                         <li>
@@ -2257,18 +2523,21 @@
             </div>
             <div class="services-container">
                 <div class="services-intro">
-                    <p>Escopo de serviços prestados nos seguimentos de Estrutura Metálicas, Telhados, Painéis, Mecânica Industrial e fabricação de Tanques Reservatórios</p>
+                    <p>Escopo de serviços prestados nos seguimentos de Estrutura Metálicas, Telhados, Painéis, Mecânica
+                        Industrial e fabricação de Tanques Reservatórios</p>
                 </div>
                 <div class="services-grid">
                     <!-- Estruturas Metálicas -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estruturas Metálicas">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Estruturas Metálicas">
                         </div>
                         <div class="service-content">
                             <div class="service-header">
                                 <h3 class="service-title">Estruturas Metálicas</h3>
-                                <p class="service-description">Montagem especializada de peças de estrutura metálica em aço carbono com alta qualidade e precisão técnica.</p>
+                                <p class="service-description">Montagem especializada de peças de estrutura metálica em
+                                    aço carbono com alta qualidade e precisão técnica.</p>
                             </div>
                             <ul class="service-items">
                                 <li class="service-item">Montagem em aço</li>
@@ -2287,12 +2556,14 @@
                     <!-- Telhados e Painéis -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Telhados e Painéis">
+                            <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Telhados e Painéis">
                         </div>
                         <div class="service-content">
                             <div class="service-header">
                                 <h3 class="service-title">Telhados e Painéis</h3>
-                                <p class="service-description">Soluções completas em coberturas industriais e comerciais com tecnologia avançada e materiais de primeira linha.</p>
+                                <p class="service-description">Soluções completas em coberturas industriais e comerciais
+                                    com tecnologia avançada e materiais de primeira linha.</p>
                             </div>
                             <ul class="service-items">
                                 <li class="service-item">Telhados industriais</li>
@@ -2310,12 +2581,14 @@
                     <!-- Mecânica Industrial -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mecânica Industrial">
+                            <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Mecânica Industrial">
                         </div>
                         <div class="service-content">
                             <div class="service-header">
                                 <h3 class="service-title">Mecânica Industrial</h3>
-                                <p class="service-description">Serviços especializados em montagem e manutenção de equipamentos industriais com equipe técnica qualificada.</p>
+                                <p class="service-description">Serviços especializados em montagem e manutenção de
+                                    equipamentos industriais com equipe técnica qualificada.</p>
                             </div>
                             <ul class="service-items">
                                 <li class="service-item">Montagem de equipamentos</li>
@@ -2333,12 +2606,14 @@
                     <!-- Tanques e Reservatórios -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tanques e Reservatórios">
+                            <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Tanques e Reservatórios">
                         </div>
                         <div class="service-content">
                             <div class="service-header">
                                 <h3 class="service-title">Tanques e Reservatórios</h3>
-                                <p class="service-description">Fabricação e montagem de tanques e reservatórios sob medida para diversos segmentos industriais e agrícolas.</p>
+                                <p class="service-description">Fabricação e montagem de tanques e reservatórios sob
+                                    medida para diversos segmentos industriais e agrícolas.</p>
                             </div>
                             <ul class="service-items">
                                 <li class="service-item">Reservatório australiano</li>
@@ -2351,6 +2626,178 @@
                                 <li class="service-item">Projetos especiais</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Projects Works Section -->
+    <section class="section projects-works" id="projects-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Principais Obras</h2>
+            </div>
+            <div class="projects-works-container">
+                <div class="projects-works-intro">
+                    <p>Obras importantes em que a Alfatec executou serviços:</p>
+                </div>
+                <div class="works-grid">
+                    <!-- Obra 1 - Gerdau -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ampliação: LC 2 e resfriamento – Fábrica <span
+                                    class="work-location">GERDAU – Pinda/SP</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category large-project">Grande Porte</span>
+                            <span class="work-year">2020</span>
+                        </div>
+                        <p class="work-description">Obra de grande porte em montagem de estrutura metálica.</p>
+                    </div>
+
+                    <!-- Obra 2 - Mitsubishi -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ampliação: Fábrica <span class="work-location">Mitsubishi Motors –
+                                    Catalão/GO</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category large-project">Grande Porte</span>
+                            <span class="work-year">2012</span>
+                        </div>
+                        <p class="work-description">Obra de grande porte em montagem de estrutura metálica.</p>
+                    </div>
+
+                    <!-- Obra 3 - Aeroporto Guarulhos -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ampliação e Reforma: <span class="work-location">Aeroporto
+                                    Internacional de Guarulhos – SP</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category large-project">Grande Porte</span>
+                            <span class="work-year">2014</span>
+                        </div>
+                        <p class="work-description">Obra de grande porte em implantação de esteira móvel de passageiros
+                            (passarela).</p>
+                    </div>
+
+                    <!-- Obra 4 - Havan -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Construção da Cobertura: <span class="work-location">Havan –
+                                    Uberaba/MG, Três Lagoas/MS, Juiz de Fora/MG e Cabo Frio/RJ</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category large-project">Grande Porte</span>
+                            <span class="work-year">2014-2015</span>
+                        </div>
+                        <p class="work-description">Obra de grande porte com execução completa de telhado.</p>
+                    </div>
+
+                    <!-- Obra 5 - Center Shopping -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ampliação: <span class="work-location">Center Shopping –
+                                    Uberlândia/MG</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category medium-project">Médio Porte</span>
+                            <span class="work-year">2008</span>
+                        </div>
+                        <p class="work-description">Obra de médio porte em montagem de estrutura metálica.</p>
+                    </div>
+
+                    <!-- Obra 6 - Cargill -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Construção Torre de Armazenamento: <span
+                                    class="work-location">Cargill – Uberlândia/MG</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2009</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada com alta precisão técnica.</p>
+                    </div>
+
+                    <!-- Obra 7 - Monsanto -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Silo de Secagem: <span class="work-location">Monsanto –
+                                    Uberlândia/MG</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2009</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada com excelência em engenharia.</p>
+                    </div>
+
+                    <!-- Obra 8 - Ginásio Brasília -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ginásio – <span class="work-location">Brasília/DF</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2011</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada na capital federal.</p>
+                    </div>
+
+                    <!-- Obra 9 - Terminal Santa Luzia -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Terminal – <span class="work-location">Santa Luzia –
+                                    Uberlândia/MG</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2013</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada com qualidade superior.</p>
+                    </div>
+
+                    <!-- Obra 10 - P&G -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Ampliação: <span class="work-location">P&G – RJ</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2012</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada para multinacional.</p>
+                    </div>
+
+                    <!-- Obra 11 - UFU -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Cobertura do Estacionamento: <span class="work-location">Universidade
+                                    Federal de Uberlândia/MG</span></h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2012</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada em instituição de ensino.</p>
+                    </div>
+
+                    <!-- Obra 12 - Bauducco -->
+                    <div class="work-item">
+                        <div class="work-header">
+                            <h3 class="work-title">Telhado: <span class="work-location">Bauducco – Extrema/MG</span>
+                            </h3>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-category small-project">Pequeno Porte</span>
+                            <span class="work-year">2013</span>
+                        </div>
+                        <p class="work-description">Obra de pequeno porte executada para indústria alimentícia.</p>
                     </div>
                 </div>
             </div>
@@ -2706,7 +3153,7 @@
         });
 
         // Theme Toggle Function
-        let isDarkMode = true;
+        let isDarkMode = false;
 
         function toggleTheme() {
             isDarkMode = !isDarkMode;
@@ -2753,6 +3200,26 @@
         if (themeToggleNav) {
             themeToggleNav.addEventListener('click', toggleTheme);
         }
+
+        // Initialize theme on page load (light theme by default)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply light theme initially
+            document.documentElement.style.setProperty('--primary-dark', '#f8f9fa');
+            document.documentElement.style.setProperty('--primary-darker', '#e9ecef');
+            document.documentElement.style.setProperty('--primary-deep', '#dee2e6');
+            document.documentElement.style.setProperty('--primary-black', '#ffffff');
+            document.documentElement.style.setProperty('--white', '#212529');
+            document.documentElement.style.setProperty('--white-soft', '#343a40');
+
+            if (themeToggle) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggle.setAttribute('data-tooltip', 'Modo Escuro');
+            }
+            if (themeToggleNav) {
+                themeToggleNav.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggleNav.setAttribute('data-tooltip', 'Modo Escuro');
+            }
+        });
 
         // Window Scroll Events
         window.addEventListener('scroll', () => {
@@ -2802,7 +3269,7 @@
         }, observerOptions);
 
         // Observe elements for animations
-        document.querySelectorAll('.about-text, .about-image, .director-content, .services-intro, .service-card, .client-display, .clients-carousel, .project-card, .contact-info, .contact-form, .fade-in-up, .fade-in-left, .fade-in-right, .stat-item').forEach(el => {
+        document.querySelectorAll('.about-text, .about-image, .director-content, .services-intro, .service-card, .projects-works-intro, .work-item, .client-display, .clients-carousel, .project-card, .contact-info, .contact-form, .fade-in-up, .fade-in-left, .fade-in-right, .stat-item').forEach(el => {
             observer.observe(el);
         });
 
