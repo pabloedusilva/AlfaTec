@@ -20,7 +20,6 @@
             --white-soft: #fefefe;
             --black: #000000;
             --accent: #6bbe52;
-            --overlay-bg: rgba(25, 20, 42, 0.75);
             --transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
         }
 
@@ -90,7 +89,7 @@
             justify-content: center;
             border-radius: 50%;
             transition: var(--transition);
-            background-image: url('https://play-lh.googleusercontent.com/utgS1fgaYutAb9jx0nYiBfbDg1mDhxWdF05UFpCez93VzHaZxyA0uUoeQQ2SbbGC4D0');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><text x="30" y="35" text-anchor="middle" fill="%23333" font-family="Arial" font-size="12" font-weight="bold">LOGO</text></svg>');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -127,7 +126,7 @@
             nav ul li a {
                 color: #ffffff !important;
             }
-
+            
             .theme-toggle {
                 color: #ffffff !important;
             }
@@ -581,10 +580,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom,
-                    rgba(25, 20, 42, 0.2) 0%,
-                    rgba(25, 20, 42, 0.8) 70%,
-                    rgba(25, 20, 42, 0.95) 100%);
+            background: linear-gradient(
+                to bottom, 
+                rgba(25, 20, 42, 0.2) 0%, 
+                rgba(25, 20, 42, 0.8) 70%, 
+                rgba(25, 20, 42, 0.95) 100%
+            );
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1084,8 +1085,8 @@
             position: relative;
         }
 
-        .form-control:focus+.form-label,
-        .form-control:not(:placeholder-shown)+.form-label {
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
             transform: translateY(-25px) scale(0.8);
             color: var(--accent);
         }
@@ -1115,239 +1116,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-        }
-
-        /* Project Modal */
-        .project-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--overlay-bg);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .project-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background-color: var(--primary-dark);
-            border-radius: 15px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: scale(0.8);
-            transition: var(--transition);
-        }
-
-        .project-modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            padding: 30px 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .modal-title {
-            color: var(--white);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--white-soft);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--accent);
-        }
-
-        .modal-body {
-            padding: 20px 30px 30px;
-        }
-
-        .modal-description {
-            color: var(--secondary-medium);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        /* Carousel */
-        .carousel-container {
-            position: relative;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: var(--primary-darker);
-        }
-
-        .carousel {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            border: none;
-            color: var(--white);
-            font-size: 1.2rem;
-            padding: 12px;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            z-index: 10;
-        }
-
-        .carousel-nav:hover {
-            background-color: var(--accent);
-            color: var(--primary-dark);
-        }
-
-        .carousel-prev {
-            left: 15px;
-        }
-
-        .carousel-next {
-            right: 15px;
-        }
-
-        .carousel-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .carousel-indicator.active {
-            background-color: var(--accent);
-        }
-
-        .modal-footer {
-            text-align: center;
-            padding: 0 30px 30px;
-        }
-
-        .modal-close-btn {
-            background-color: var(--accent);
-            color: var(--primary-dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-close-btn:hover {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
-        /* Responsive Modal */
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 95%;
-                margin: 20px;
-            }
-
-            .modal-header {
-                padding: 20px 20px 0;
-            }
-
-            .modal-body {
-                padding: 15px 20px 20px;
-            }
-
-            .modal-footer {
-                padding: 0 20px 20px;
-            }
-
-            .modal-title {
-                font-size: 1.6rem;
-            }
-
-            .carousel {
-                height: 250px;
-            }
         }
 
         /* Responsive */
@@ -1500,7 +1268,7 @@
     <header id="header">
         <div class="container">
             <div class="header-container">
-                <a href="#home" class="logo">
+                <a href="#" class="logo">
                     <div class="logo-mark"></div>
                 </a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1559,8 +1327,8 @@
                         que impulsionam a produtividade e eficiência de nossos clientes.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://play-lh.googleusercontent.com/utgS1fgaYutAb9jx0nYiBfbDg1mDhxWdF05UFpCez93VzHaZxyA0uUoeQQ2SbbGC4D0"
-                        alt="Logo-Alfa-Tec">
+                    <img src="https://images.unsplash.com/photo-1581093057305-25f0a6f27a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                        alt="Fábrica Alfa Tec">
                 </div>
             </div>
         </div>
@@ -1678,12 +1446,7 @@
                             <h3>Montagem de Linha de Produção Automotiva</h3>
                             <p>Implantação completa de linha de produção para montadora de veículos, com capacidade para
                                 50.000 unidades/ano.</p>
-                            <a href="#" class="btn btn-outline" 
-                               data-project-title="Montagem de Linha de Produção Automotiva"
-                               data-project-description="Projeto completo de implantação de linha de produção automotiva com tecnologia de ponta. Inclui instalação de robôs de soldagem, sistemas de transporte automatizado, cabines de pintura e linha de montagem final. Capacidade de produção de 50.000 unidades por ano com eficiência energética de 95% e redução de 30% no tempo de ciclo em comparação com sistemas convencionais."
-                               data-project-images='["https://images.unsplash.com/photo-1581093057305-25f0a6f27a8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1565531244637-d7e7172b5b67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544196979-c14b6e8f31b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1697,12 +1460,7 @@
                             <h3>Sistema de Armazenamento Automatizado</h3>
                             <p>Projeto e instalação de sistema automatizado de armazenagem com capacidade para 15.000
                                 pallets.</p>
-                            <a href="#" class="btn btn-outline"
-                               data-project-title="Sistema de Armazenamento Automatizado"
-                               data-project-description="Implementação de sistema AS/RS (Automated Storage and Retrieval System) de última geração com capacidade para 15.000 pallets. Inclui empilhadeiras automatizadas, sistema WMS integrado, sensores de segurança e controle por IA. Redução de 70% no tempo de picking e 85% na precisão de inventário."
-                               data-project-images='["https://images.unsplash.com/photo-1581093057920-6235e1d5fe36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1716,12 +1474,7 @@
                             <h3>Reforma de Planta Industrial</h3>
                             <p>Modernização completa de planta industrial de 25.000m² com implementação de novas
                                 tecnologias.</p>
-                            <a href="#" class="btn btn-outline"
-                               data-project-title="Reforma de Planta Industrial"
-                               data-project-description="Modernização completa de complexo industrial de 25.000m² incluindo upgrade de infraestrutura elétrica, sistemas de ventilação, automação de processos e implementação de tecnologias Industry 4.0. Projeto executado sem interrupção da produção, resultando em aumento de 40% na eficiência operacional."
-                               data-project-images='["https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1735,12 +1488,7 @@
                             <h3>Instalação de Máquinas Pesadas</h3>
                             <p>Transporte e instalação de equipamentos para indústria pesada com peças de até 120
                                 toneladas.</p>
-                            <a href="#" class="btn btn-outline"
-                               data-project-title="Instalação de Máquinas Pesadas"
-                               data-project-description="Projeto especializado de movimentação e instalação de equipamentos industriais de grande porte, incluindo turbinas, geradores e prensas hidráulicas com peso de até 120 toneladas. Utilizamos guindastes especiais, sistemas de transporte over size e técnicas de rigging avançadas para garantir precisão milimétrica na instalação."
-                               data-project-images='["https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1590479772238-3de0e19bb560?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1754,12 +1502,7 @@
                             <h3>Sistema de Transporte Interno</h3>
                             <p>Implantação de sistema de transporte automatizado para fábrica com mais de 2km de
                                 esteiras.</p>
-                            <a href="#" class="btn btn-outline"
-                               data-project-title="Sistema de Transporte Interno"
-                               data-project-description="Implementação de sistema de transporte automatizado com mais de 2km de esteiras transportadoras, incluindo pontes rolantes, elevadores industriais e sistemas de classificação automática. Integração com ERP para rastreabilidade completa e controle de fluxo inteligente com redução de 60% no tempo de movimentação interna."
-                               data-project-images='["https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1566498932306-0a30b15bf8b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1552242718-eec9b6c2e6e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1572098393169-41096b18eca6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1773,12 +1516,7 @@
                             <h3>Montagem de Estruturas Metálicas</h3>
                             <p>Construção e montagem de estruturas para nova unidade fabril com 15.000m² de área
                                 construída.</p>
-                            <a href="#" class="btn btn-outline"
-                               data-project-title="Montagem de Estruturas Metálicas"
-                               data-project-description="Projeto de construção e montagem de estruturas metálicas para complexo industrial de 15.000m² incluindo galpões, mezaninos, passarelas e estruturas de suporte para equipamentos. Utilização de aço galvanizado, soldas certificadas e técnicas de montagem que garantem resistência sísmica e durabilidade de mais de 50 anos."
-                               data-project-images='["https://images.unsplash.com/photo-1581094272269-3a9c6d4b1f0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1588854337236-6889d631faa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1572098393339-5ad58cdacf95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]'>
-                               Ver Detalhes
-                            </a>
+                            <a href="#" class="btn btn-outline">Ver Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -1892,12 +1630,9 @@
                 <div class="footer-col">
                     <h3>Links Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="https://wa.me/5511999999999" target="_blank"><i class="fab fa-whatsapp"></i>
-                                WhatsApp</a></li>
-                        <li><a href="https://linkedin.com/company/alfatec" target="_blank"><i
-                                    class="fab fa-linkedin-in"></i> LinkedIn</a></li>
-                        <li><a href="https://instagram.com/alfatec" target="_blank"><i class="fab fa-instagram"></i>
-                                Instagram</a></li>
+                        <li><a href="https://wa.me/5511999999999" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="https://linkedin.com/company/alfatec" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                        <li><a href="https://instagram.com/alfatec" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1929,38 +1664,6 @@
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
-
-    <!-- Project Modal -->
-    <div class="project-modal" id="projectModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle"></h2>
-                <button class="modal-close" id="modalClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="modal-description" id="modalDescription"></p>
-                <div class="carousel-container">
-                    <div class="carousel" id="carousel">
-                        <!-- Slides serão inseridos dinamicamente -->
-                    </div>
-                    <button class="carousel-nav carousel-prev" id="carouselPrev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-nav carousel-next" id="carouselNext">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="carousel-indicators" id="carouselIndicators">
-                        <!-- Indicadores serão inseridos dinamicamente -->
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-close-btn" id="modalCloseBtn">Fechar</button>
-            </div>
-        </div>
-    </div>
 
     <script>
         // DOM Elements
@@ -2024,10 +1727,10 @@
 
         // Theme Toggle Function
         let isDarkMode = true;
-
+        
         function toggleTheme() {
             isDarkMode = !isDarkMode;
-
+            
             if (isDarkMode) {
                 document.documentElement.style.setProperty('--primary-dark', '#19142a');
                 document.documentElement.style.setProperty('--primary-darker', '#130e24');
@@ -2035,8 +1738,7 @@
                 document.documentElement.style.setProperty('--primary-black', '#130e25');
                 document.documentElement.style.setProperty('--white', '#ffffff');
                 document.documentElement.style.setProperty('--white-soft', '#fefefe');
-                document.documentElement.style.setProperty('--overlay-bg', 'rgba(25, 20, 42, 0.75)');
-
+                
                 if (themeToggle) {
                     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
                     themeToggle.setAttribute('data-tooltip', 'Modo Claro');
@@ -2052,8 +1754,7 @@
                 document.documentElement.style.setProperty('--primary-black', '#ffffff');
                 document.documentElement.style.setProperty('--white', '#212529');
                 document.documentElement.style.setProperty('--white-soft', '#343a40');
-                document.documentElement.style.setProperty('--overlay-bg', 'rgba(248, 249, 250, 0.75)');
-
+                
                 if (themeToggle) {
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
                     themeToggle.setAttribute('data-tooltip', 'Modo Escuro');
@@ -2107,14 +1808,14 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
-
+                    
                     // Animate counters for stat items
                     if (entry.target.classList.contains('stat-item')) {
                         const counter = entry.target.querySelector('.stat-number');
                         const target = parseInt(counter.getAttribute('data-count'));
                         animateCounter(counter, target);
                     }
-
+                    
                     observer.unobserve(entry.target);
                 }
             });
@@ -2146,26 +1847,26 @@
         // Enhanced Form Submission with Loading State
         formContato.addEventListener('submit', (e) => {
             e.preventDefault();
-
+            
             const submitBtn = formContato.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-
+            
             // Show loading state
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
-
+            
             // Simulate form submission
             setTimeout(() => {
                 // Success feedback
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Enviado!';
                 submitBtn.style.backgroundColor = '#28a745';
-
+                
                 // Show success message
                 showNotification('Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.', 'success');
-
+                
                 // Reset form
                 formContato.reset();
-
+                
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
@@ -2184,7 +1885,7 @@
                 <span>${message}</span>
                 <button class="notification-close"><i class="fas fa-times"></i></button>
             `;
-
+            
             notification.style.cssText = `
                 position: fixed;
                 top: 100px;
@@ -2202,18 +1903,18 @@
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
             `;
-
+            
             document.body.appendChild(notification);
-
+            
             setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
             }, 100);
-
+            
             notification.querySelector('.notification-close').addEventListener('click', () => {
                 notification.style.transform = 'translateX(100%)';
                 setTimeout(() => notification.remove(), 300);
             });
-
+            
             setTimeout(() => {
                 if (notification.parentNode) {
                     notification.style.transform = 'translateX(100%)';
@@ -2243,7 +1944,7 @@
             document.querySelectorAll('.team-member').forEach((member, index) => {
                 member.style.transitionDelay = `${index * 0.1}s`;
             });
-
+            
             // Add stagger animation to project cards
             document.querySelectorAll('.project-card').forEach((card, index) => {
                 card.style.transitionDelay = `${index * 0.1}s`;
@@ -2252,13 +1953,13 @@
 
         // Add click effect to buttons
         document.querySelectorAll('.btn, .submit-btn').forEach(btn => {
-            btn.addEventListener('click', function (e) {
+            btn.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
-
+                
                 ripple.style.cssText = `
                     position: absolute;
                     width: ${size}px;
@@ -2271,11 +1972,11 @@
                     animation: ripple 0.6s linear;
                     pointer-events: none;
                 `;
-
+                
                 this.style.position = 'relative';
                 this.style.overflow = 'hidden';
                 this.appendChild(ripple);
-
+                
                 setTimeout(() => ripple.remove(), 600);
             });
         });
@@ -2291,186 +1992,6 @@
             }
         `;
         document.head.appendChild(style);
-
-        // Modal functionality
-        let currentImageIndex = 0;
-        let currentImages = [];
-        let carouselInterval;
-
-        // Aguardar DOM estar pronto
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('projectModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const carouselContainer = document.getElementById('carousel');
-            const prevBtn = document.getElementById('carouselPrev');
-            const nextBtn = document.getElementById('carouselNext');
-            const indicatorsContainer = document.getElementById('carouselIndicators');
-            const closeModalBtn = document.getElementById('modalClose');
-            const closeModalFooter = document.getElementById('modalCloseBtn');
-
-            console.log('Modal element:', modal); // Debug
-            console.log('Carousel container:', carouselContainer); // Debug
-
-            // Função para abrir o modal
-            function openModal(title, description, images) {
-                modalTitle.textContent = title;
-                modalDescription.textContent = description;
-                currentImages = images;
-                currentImageIndex = 0;
-                
-                // Criar imagens do carousel
-                createCarouselImages();
-                createIndicators();
-                updateCarousel();
-                
-                // Mostrar modal
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                
-                // Iniciar autoplay
-                startCarousel();
-            }
-
-            // Função para fechar o modal
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                stopCarousel();
-            }
-
-            // Criar imagens do carousel
-            function createCarouselImages() {
-                carouselContainer.innerHTML = '';
-                currentImages.forEach((image, index) => {
-                    const slide = document.createElement('div');
-                    slide.className = 'carousel-slide';
-                    if (index === 0) slide.classList.add('active');
-                    
-                    const img = document.createElement('img');
-                    img.src = image;
-                    img.alt = `${modalTitle.textContent} - Imagem ${index + 1}`;
-                    
-                    slide.appendChild(img);
-                    carouselContainer.appendChild(slide);
-                });
-            }
-
-            // Criar indicadores
-            function createIndicators() {
-                indicatorsContainer.innerHTML = '';
-                currentImages.forEach((_, index) => {
-                    const indicator = document.createElement('button');
-                    indicator.className = 'carousel-indicator';
-                    if (index === 0) indicator.classList.add('active');
-                    indicator.addEventListener('click', () => goToSlide(index));
-                    indicatorsContainer.appendChild(indicator);
-                });
-            }
-
-            // Atualizar carousel
-            function updateCarousel() {
-                const slides = carouselContainer.querySelectorAll('.carousel-slide');
-                const indicators = indicatorsContainer.querySelectorAll('.carousel-indicator');
-                
-                slides.forEach((slide, index) => {
-                    slide.classList.toggle('active', index === currentImageIndex);
-                });
-                
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentImageIndex);
-                });
-            }
-
-            // Ir para slide específico
-            function goToSlide(index) {
-                currentImageIndex = index;
-                updateCarousel();
-                resetCarousel();
-            }
-
-            // Próxima imagem
-            function nextImage() {
-                currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-                updateCarousel();
-                resetCarousel();
-            }
-
-            // Imagem anterior
-            function prevImage() {
-                currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-                updateCarousel();
-                resetCarousel();
-            }
-
-            // Iniciar carousel automático
-            function startCarousel() {
-                stopCarousel();
-                carouselInterval = setInterval(nextImage, 4000);
-            }
-
-            // Parar carousel automático
-            function stopCarousel() {
-                if (carouselInterval) {
-                    clearInterval(carouselInterval);
-                    carouselInterval = null;
-                }
-            }
-
-            // Resetar timer do carousel
-            function resetCarousel() {
-                startCarousel();
-            }
-
-            // Event listeners para modal
-            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-            if (closeModalFooter) closeModalFooter.addEventListener('click', closeModal);
-            
-            // Fechar modal clicando no backdrop
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-            }
-
-            // Event listeners para navegação do carousel
-            if (prevBtn) prevBtn.addEventListener('click', prevImage);
-            if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-            // Pausar autoplay quando hover nos controles
-            [prevBtn, nextBtn, indicatorsContainer].forEach(element => {
-                if (element) {
-                    element.addEventListener('mouseenter', stopCarousel);
-                    element.addEventListener('mouseleave', startCarousel);
-                }
-            });
-
-            // Event listeners para os botões "Ver Detalhes"
-            document.querySelectorAll('[data-project-title]').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const title = btn.getAttribute('data-project-title');
-                    const description = btn.getAttribute('data-project-description');
-                    const images = JSON.parse(btn.getAttribute('data-project-images'));
-                    openModal(title, description, images);
-                });
-            });
-
-            // Fechar modal com tecla ESC e navegação por teclado
-            document.addEventListener('keydown', (e) => {
-                if (modal && modal.classList.contains('active')) {
-                    if (e.key === 'Escape') {
-                        closeModal();
-                    } else if (e.key === 'ArrowLeft') {
-                        prevImage();
-                    } else if (e.key === 'ArrowRight') {
-                        nextImage();
-                    }
-                }
-            });
-        });
     </script>
 </body>
 
